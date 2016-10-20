@@ -4,12 +4,13 @@ using Foundation;
 using MediaPlayer;
 using UIKit;
 using VideoSamples.Controls;
+using static System.String;
 
 namespace VideoSamples.iOS.Controls
 {
 	public class MyPlayerView : UIView
 	{
-		MyMPMoviePlayerController _MoviePlayer;
+	    readonly MyAVPlayerController _moviePlayer;
 		private bool _UsingFullWidth;
 		private bool _UsingFullHeight;
 
@@ -18,10 +19,10 @@ namespace VideoSamples.iOS.Controls
 		{
 			BackgroundColor = UIColor.Clear;
 
-			_MoviePlayer = new MyMPMoviePlayerController (Parent);	
+			_moviePlayer = new MyAVPlayerController (Parent);	
 
 			// add to subview
-			AddSubview (_MoviePlayer.View);
+			AddSubview (_moviePlayer.View);
 		}
 
 		public override void Draw (CGRect rect)
@@ -40,7 +41,7 @@ namespace VideoSamples.iOS.Controls
 				rect.Width = w;
 			}
 
-			_MoviePlayer.View.Frame = rect;
+			_moviePlayer.View.Frame = rect;
 			Frame = rect;
 		}
 
@@ -99,29 +100,29 @@ namespace VideoSamples.iOS.Controls
 			});
 		}
 
-		protected internal void Start()
-		{
-			if (_MoviePlayer.PlaybackState == MPMoviePlaybackState.Paused) {
-				// handle pause
-				_MoviePlayer.Play ();
-			} else {
-				_MoviePlayer.PrepareToPlay ();
-			}
-		}
+//		protected internal void Start()
+//		{
+//			if (_moviePlayer.PlaybackState == MPMoviePlaybackState.Paused) {
+//				// handle pause
+//				_moviePlayer.Play ();
+//			} else {
+//				_moviePlayer.PrepareToPlay ();
+//			}
+//		}
 
-		protected internal void Stop()
-		{			
-			_MoviePlayer.Stop ();
-		}
-
-		protected internal void Pause()
-		{
-			_MoviePlayer.Pause ();
-		}
+//		protected internal void Stop()
+//		{			
+//			_moviePlayer.Stop ();
+//		}
+//
+//		protected internal void Pause()
+//		{
+//			_moviePlayer.Pause ();
+//		}
 
 		protected internal void SeekTo(double pos)
 		{
-			_MoviePlayer.CurrentPlaybackTime = pos;
+			// _moviePlayer.CurrentPlaybackTime = pos;
 		}
 
 		/// <summary>
@@ -132,11 +133,11 @@ namespace VideoSamples.iOS.Controls
 		{
 			// file must be set to Content
 			// url starts with http
-			if (String.IsNullOrEmpty (file) == false) {
+			if (!IsNullOrEmpty (file)) {
 				if (file.ToString().ToLower().StartsWith ("http") == false) {
-					_MoviePlayer.Load (NSUrl.FromFilename (file), false);
+					_moviePlayer.Load (NSUrl.FromFilename (file));
 				} else {
-					_MoviePlayer.Load (NSUrl.FromString (file), true);
+					_moviePlayer.Load (NSUrl.FromString (file), true);
 				}
 			}
 		}
@@ -145,9 +146,9 @@ namespace VideoSamples.iOS.Controls
 		protected internal bool FullScreen {			
 			set {
 				if (value) {
-					_MoviePlayer.SetFullscreen (true, true);
+					// _moviePlayer.SetFullscreen (true, true);
 				} else {
-					_MoviePlayer.SetFullscreen (false, true);
+					// _moviePlayer.SetFullscreen (false, true);
 				}
 			}
 		}
@@ -156,11 +157,11 @@ namespace VideoSamples.iOS.Controls
 		{
 			set {
 				if (value) {
-					_MoviePlayer.View.ClipsToBounds = true;
-					_MoviePlayer.ScalingMode = MPMovieScalingMode.AspectFill;
+					_moviePlayer.View.ClipsToBounds = true;
+					// _moviePlayer.ScalingMode = MPMovieScalingMode.AspectFill;
 				} else {
-					_MoviePlayer.View.ClipsToBounds = false;
-					_MoviePlayer.ScalingMode = MPMovieScalingMode.None;
+					_moviePlayer.View.ClipsToBounds = false;
+					// _moviePlayer.ScalingMode = MPMovieScalingMode.None;
 				}
 			}
 		}
@@ -169,16 +170,16 @@ namespace VideoSamples.iOS.Controls
 		{
 			set {
 				if (value) {
-					_MoviePlayer.ControlStyle = MPMovieControlStyle.Embedded;
+					// _moviePlayer.ControlStyle = MPMovieControlStyle.Embedded;
 				} else {
-					_MoviePlayer.ControlStyle = MPMovieControlStyle.None;
+					// _moviePlayer.ControlStyle = MPMovieControlStyle.None;
 				}
 			}
 		}
 
 		protected override void Dispose (bool disposing)
 		{
-			_MoviePlayer.Dispose ();
+			_moviePlayer.Dispose ();
 			base.Dispose (disposing);
 		}
 	}

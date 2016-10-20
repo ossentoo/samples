@@ -88,7 +88,11 @@ namespace VideoSamples
 		    _player = new VideoPlayerView {HeightRequest = 200};
 
 		    _player.VideoPlayer.AddVideoController = true;
-			_player.VideoPlayer.FileSource = "sample.m4v"; //"http://192.168.202.78/sample.m4v";
+            _player.VideoPlayer.FileSource = "http://clips.vorwaerts-gmbh.de/VfE_html5.mp4";
+            // _player.VideoPlayer.FileSource = "http://www.jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v";
+            // _player.VideoPlayer.FileSource = "sample.m4v";
+                // "http://spacelinxtrainingdev.streaming.mediaservices.windows.net/19ad507a-573d-4888-8e0b-38c67e9638b2/Oscar%20Ssentoogo-Octopus%20Deploy_320x180_400.mp4";
+                    // "http://spacelinxtrainingdev.streaming.mediaservices.windows.net/19ad507a-573d-4888-8e0b-38c67e9638b2/Oscar%20Ssentoogo-Octopus%20Deploy.ism/manifest(format=m3u8-aapl)";// "sample.m4v"; //"http://192.168.202.78/sample.m4v";
 
 			// autoplay video
 			_player.VideoPlayer.AutoPlay = true;

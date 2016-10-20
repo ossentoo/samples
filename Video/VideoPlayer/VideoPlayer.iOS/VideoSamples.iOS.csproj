@@ -90,7 +90,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MyVideoPlayerRenderer.cs" />
     <Compile Include="Controls\MyPlayerView.cs" />
-    <Compile Include="Controls\MyMPMoviePlayerController.cs" />
+    <Compile Include="Controls\MyAVPlayerController.cs" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
