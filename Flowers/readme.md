@@ -1,5 +1,7 @@
 A standalone xaml Xamarin sample that uses the [Mvvmlight](https://mvvmlight.codeplex.com/SourceControl/latest) framework.
 
+This solution has been opened and saved with Visual Studio 2017.
+
 I've added some Xamarin UITests that were started from the [Xamarin Test Recorder] (https://www.xamarin.com/test-cloud/recorder) and have been refactored a little.    [Here's another link](https://developer.xamarin.com/guides/testcloud/testrecorder/?ide=vs/).
 
 
