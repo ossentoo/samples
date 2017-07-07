@@ -35,9 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\Flowers.Web\Model\WebConstants.cs">
-      <Link>Model\WebConstants.cs</Link>
-    </Compile>
     <Compile Include="Design\DesignNavigationService.cs" />
     <Compile Include="Model\Comment.cs" />
     <Compile Include="Design\DesignFlowersService.cs" />
@@ -45,6 +42,7 @@
     <Compile Include="Model\FlowersResult.cs" />
     <Compile Include="Model\FlowersService.cs" />
     <Compile Include="Model\IFlowersService.cs" />
+    <Compile Include="Model\WebConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\FlowerViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
